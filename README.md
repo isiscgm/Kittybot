@@ -1,4 +1,4 @@
-# SeuBot - Multi-function Discord Bot
+# Kittybot
 
 ## Visão Geral
 
@@ -24,12 +24,5 @@ Este bot foi projetado com fins educacionais e de entretenimento. Ele será cons
 - Python 3.8 ou superior  
 - Token do Discord Bot (criado no [Discord Developer Portal](https://discord.com/developers/applications))  
 - Ambiente com pip instalado e seus devidos `requeriments`
-
-### Instalação
-
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/seuusuario/seubot.git
-   cd seubot
 
 
