@@ -51,13 +51,14 @@ async def gatin_task():
 
 async def load_cogs():
     for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
+        if filename.endswith(".py") and filename != "__init__.py":
             ext_name = f"cogs.{filename[:-3]}"
             if ext_name not in bot.extensions:
                 await bot.load_extension(ext_name)
                 print(f"Cog carregado: {ext_name}")
             else:
                 print(f"Cog já está carregado: {ext_name}")
+
 
 async def main():
     async with bot:

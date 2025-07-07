@@ -1,1 +1,9 @@
+#discord-token
+
 token.txt
+
+#cache
+
+__pycache__/
+*.pyc
+
