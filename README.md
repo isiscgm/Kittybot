@@ -17,9 +17,9 @@ Este bot foi projetado com fins educacionais e de entretenimento. Ele será cons
 - 🚪 Entrar e sair de canais de voz automaticamente
 - 📊 Mostrar informações de áudio e vídeo do YouTube
 - 🤖 Comandos de moderação: kick, ban, mute, unmute, clear, etc.    
-- 🤣 Comandos de entretenimento: kiss, roll, joke, meme, etc.
+- 🤣 Comandos de entretenimento: for-fun em geral.
 
-### Pré-requisitos
+## Pré-requisitos
 
 - Python 3.8 ou superior  
 - Token do Discord Bot (criado no [Discord Developer Portal](https://discord.com/developers/applications))  
