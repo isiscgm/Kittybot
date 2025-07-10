@@ -2,15 +2,15 @@
 import os
 import asyncio
 import discord
+from dotenv import load_dotenv
 from discord.ext import commands, tasks
 from datetime import time
 
+load_dotenv()
+token = os.getenv("DISCORD_TOKEN")
+
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='k!', intents=intents, help_command=None)
-
-
-with open("token.txt", "r") as file:
-    TOKEN = file.read().strip()
 
 @bot.event
 async def on_ready():
@@ -66,6 +66,6 @@ async def load_cogs():
 async def main():
     async with bot:
         await load_cogs()
-        await bot.start(TOKEN)
+        await bot.start(token)
 
 asyncio.run(main())
