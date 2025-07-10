@@ -16,7 +16,7 @@ bot = commands.Bot(command_prefix='k!', intents=intents, help_command=None)
 async def on_ready():
     sincs = await bot.tree.sync()
     print(f"Sincronizados {len(sincs)} comandos slash.")
-    await bot.change_presence(activity=discord.Game(name="✨ k!help para mais informações ✨"))
+    await bot.change_presence(activity=discord.Game(name="✨  k!help para mais informações  ✨"))
     gatin_task.start()
     print("Bot iniciado com sucesso!")
 
