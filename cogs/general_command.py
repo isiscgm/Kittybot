@@ -2,6 +2,7 @@ import discord
 import os
 import sys
 from discord.ext import commands
+import discord.app_commands as app_commands
 
 class GeneralCommands(commands.Cog):
     def __init__(self, bot):
@@ -82,6 +83,38 @@ class GeneralCommands(commands.Cog):
 
         except Exception as e:
             await ctx.reply(f"❌ Erro ao tentar enviar a mensagem:\n`{e}`")
+    
+    @app_commands.command(name="say", description="Faz o bot enviar a mensagem especificada.")
+    async def say_slash(self, interaction: discord.Interaction, message: str):
+        canal = interaction.channel
+
+        if not message:
+            await interaction.response.send_message(
+                "❌ Você precisa escrever uma mensagem para enviar.", ephemeral=True
+            )
+            return
+
+        await interaction.response.defer()
+        await canal.send(message)
+        await interaction.followup.send("", ephemeral=True)
+
+        try:
+            await interaction.delete_original_response()
+        except discord.Forbidden:
+            pass
+
+    @app_commands.command(name="avatar", description="Mostra o avatar do usuário mencionado ou do autor do comando, caso não mencione ninguém!")
+    async def avatar(self, interaction: discord.Interaction, member: discord.Member = None):
+        if member is None:
+            member = interaction.user
+
+        embed = discord.Embed(
+            title=f"Avatar de {member.display_name}",
+            color=0xff69b4
+        )
+        embed.set_image(url=member.avatar.url if member.avatar else "")
+        embed.set_footer(text=f"ID do usuário: {member.id}")
+        await interaction.response.send_message(embed=embed)
     
     @commands.command()
     async def shutdown(self, ctx: commands.Context):

@@ -24,6 +24,9 @@ async def on_ready():
 async def on_message(message):
     if message.author.bot:
         return
+    
+    if message.reference:
+        return
 
     if bot.user in message.mentions:
         await message.channel.send(
